@@ -1,4 +1,4 @@
-FROM redis:5.0.3-alpine
+FROM redis:6.0.5-alpine
 
 RUN mkdir -p /conf
 COPY fix-ip.sh /conf/fix-ip.sh

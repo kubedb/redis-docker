@@ -3,7 +3,7 @@ SHELL=/bin/bash -o pipefail
 REGISTRY ?= kubedb
 BIN      := redis
 IMAGE    := $(REGISTRY)/$(BIN)
-TAG      := 5.0.3-v1
+TAG      := 6.0.5
 
 .PHONY: push
 push: container
@@ -11,4 +11,4 @@ push: container
 
 .PHONY: container
 container:
-	docker build -t $(IMAGE):$(TAG)
+	docker build -t $(IMAGE):$(TAG) .
