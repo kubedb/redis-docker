@@ -11,8 +11,8 @@ push: container
 
 .PHONY: container
 container:
-	docker pull redis:$(DB_VERSION)-alpine
-	docker tag redis:$(DB_VERSION)-alpine $(IMAGE):$(TAG)
+	docker pull redis:$(TAG)-alpine
+	docker tag redis:$(TAG)-alpine $(IMAGE):$(TAG)
 
 .PHONY: version
 version:
