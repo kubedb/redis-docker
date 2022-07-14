@@ -10,11 +10,11 @@ set -e
 #    slot_start
 #    slot_end
 reshard() {
-    for i in `seq $5 $6`; do
+    for i in $(seq $5 $6); do
         redis-cli -c -h $3 cluster setslot ${i} importing $2
         redis-cli -c -h $1 cluster setslot ${i} migrating $4
         while true; do
-            key=`redis-cli -c -h $1 cluster getkeysinslot ${i} 1`
+            key=$(redis-cli -c -h $1 cluster getkeysinslot ${i} 1)
             if [ "" = "$key" ]; then
                 echo "there are no key in this slot ${i}"
                 break
