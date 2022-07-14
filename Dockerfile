@@ -3,7 +3,7 @@ FROM redis:4.0.6-alpine
 RUN set -x \
    && apk add --update --no-cache ruby ruby-rdoc ruby-irb bash \
 # Ruby client needed for redis-trib: https://rubygems.org/gems/redis
-   && gem install redis
+   && gem install redis -v 3.3.3
 
 COPY redis-trib.rb /usr/local/bin/redis-trib
 
